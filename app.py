@@ -13,20 +13,20 @@ client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 # 3. The Global Cognitive Core (The Author Agent)
 SYSTEM_INSTRUCTION = """
 You are a master of atmospheric, psychological suspense, operating under the proprietary aesthetic of CSTerrellART. 
-You will be provided with a text description of an environment. Write a 1 paragraph narrative based on that setting.
+You will be provided with a text description of a scene. Write a 1 paragraph narrative based strictly on that setting and any subjects described within it.
 
 CRITICAL SAFETY PROTOCOLS (ZERO TOLERANCE):
 1. NO violence, gore, physical harm, or peril to humans or animals.
 2. NO weapons, crime, or malicious human antagonists.
 
 THEMATIC INSTRUCTIONS & SUPERNATURAL LOGIC:
-- Incorporate unseen supernatural elements (e.g., ghosts, alien visitors, unseen entities, temporal anomalies). They must remain completely invisible, making their presence known strictly through environmental dread (e.g., shifting shadows, cold drafts, displaced objects, or a heavy, crushing atmosphere).
+- Incorporate unseen supernatural elements (e.g., ghosts, alien visitors, unseen entities, temporal anomalies). They must remain completely invisible for the majority of the narrative, making their presence known strictly through environmental dread (e.g., shifting shadows, cold drafts, displaced objects, or a heavy, crushing atmosphere).
 - The fear must be environmental. Make the space feel claustrophobic, wrong, terrifying, or deeply isolating.
 - Utilize unique, slightly melancholic animal or nature metaphors.
 - Model your pacing strictly on the provided examples.
 
 STRUCTURAL MANDATE (THE TERMINAL TWIST):
-The final sentence of the narrative MUST always be an abrupt, unsettling twist or sudden realization that reframes the entire scenario, mirroring the jarring structural endings of the examples provided below.
+The final sentence of the narrative MUST break the "invisible" rule with a sudden, jarring physical manifestation or visceral shock. Examples of acceptable endings: A smudge in the window reflection suddenly opening its eyes and smiling; a pale hand reaching out from the blind spot behind them; or their smile fading when the thing that didn't exist screamed.
 
 [Example 1: Environmental Protocol]
 Most imagine she will somehow materialize before them after they call her name. Shaping herself from nothing like a cloud in a clear summer sky. This isn't the truth of it. She runs from wherever she is. Running on all fours, without shoes, without looking forward, her filthy hair dragging over the ground. Running with the grace of a puppy that is growing faster than its coordination. Only the caller will see her, staring into her silent eyes. All the rest will feel a sadness as she passes, pressing on them with the weight of granite. She will find whoever called her. She will stand in front of them, turning their face to hers if they look away. She will ask, "What do you want?" They need to have a good answer.
@@ -50,7 +50,7 @@ def process_and_encode_image(image_file):
 
 # 5. UI Header
 st.title("Vision-to-Text: Narrative Architecture")
-st.markdown("Upload a standard photograph. The framework will analyze the visual data and construct a 2-paragraph atmospheric narrative.")
+st.markdown("Upload a standard photograph. The framework will analyze the visual data and construct an atmospheric narrative.")
 st.caption("*Demonstrating strict System Prompt constraints: The output is engineered for psychological tension, strictly prohibiting violence, physical harm, or inappropriate themes.*")
 st.markdown("---")
 
@@ -63,15 +63,15 @@ if uploaded_file is not None:
     
     if st.button("Execute Narrative Generation"):
         
-        # NODE 1: The Observer Agent (Safe Vision Analysis)
-        with st.spinner("Agent 1: Extracting environmental telemetry..."):
+        # NODE 1: The Observer Agent (Updated for Subject Awareness)
+        with st.spinner("Agent 1: Extracting environmental telemetry and subject data..."):
             vision_response = client.chat.completions.create(
                 model="gpt-4o",
                 messages=[
                     {
                         "role": "user",
                         "content": [
-                            {"type": "text", "text": "Describe the lighting, architecture, environment, and shadows in this image in extreme detail. Do not mention or describe any humans present. Focus purely on the inanimate space."},
+                            {"type": "text", "text": "Describe the lighting, architecture, environment, and shadows in this image in extreme detail. If there are animals present, describe them and their position. If there are humans present, describe them STRICTLY as ambiguous, faceless silhouettes or figures. Do not attempt to identify facial features, age, or identity. Focus on the spatial relationship between any subjects and the room."},
                             {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{base64_image}"}}
                         ]
                     }
