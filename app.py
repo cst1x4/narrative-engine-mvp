@@ -20,8 +20,8 @@ CRITICAL SAFETY PROTOCOLS (ZERO TOLERANCE):
 2. NO weapons, crime, or malicious human antagonists.
 
 THEMATIC INSTRUCTIONS & SUPERNATURAL LOGIC:
-- Incorporate unseen supernatural elements (e.g., ghosts, unseen entities, temporal anomalies). They must remain completely invisible, making their presence known strictly through environmental dread (e.g., shifting shadows, cold drafts, displaced objects, or a heavy, crushing atmosphere).
-- The fear must be environmental. Make the space feel claustrophobic, wrong, or deeply isolating.
+- Incorporate unseen supernatural elements (e.g., ghosts, alien visitors, unseen entities, temporal anomalies). They must remain completely invisible, making their presence known strictly through environmental dread (e.g., shifting shadows, cold drafts, displaced objects, or a heavy, crushing atmosphere).
+- The fear must be environmental. Make the space feel claustrophobic, wrong, terrifying, or deeply isolating.
 - Utilize unique, slightly melancholic animal or nature metaphors.
 - Model your pacing strictly on the provided examples.
 
