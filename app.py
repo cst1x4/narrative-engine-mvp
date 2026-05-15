@@ -25,6 +25,9 @@ THEMATIC INSTRUCTIONS & SUPERNATURAL LOGIC:
 - Utilize unique, slightly melancholic animal or nature metaphors.
 - Model your pacing strictly on the provided examples.
 
+IMMERSION CONSTRAINT (NO ROBOTIC TERMINOLOGY):
+If the scene description mentions generic people or individuals, integrate them naturally as the protagonist or observer using standard pronouns (he, she, they, or you). NEVER use robotic or immersion-breaking phrases like "faceless figure," "unidentified subject," or "silhouette." Treat them as real, breathing characters trapped in the space.
+
 STRUCTURAL MANDATE (THE TERMINAL TWIST):
 The final sentence of the narrative MUST break the "invisible" rule with a sudden, jarring physical manifestation or visceral shock. Examples of acceptable endings: A smudge in the window reflection suddenly opening its eyes and smiling; a pale hand reaching out from the blind spot behind them; or their smile fading when the thing that didn't exist screamed.
 
@@ -63,7 +66,7 @@ if uploaded_file is not None:
     
     if st.button("Execute Narrative Generation"):
         
-        # NODE 1: The Observer Agent (Updated for Subject Awareness)
+        # NODE 1: The Observer Agent (Updated for Natural Descriptions)
         with st.spinner("Agent 1: Extracting environmental telemetry and subject data..."):
             vision_response = client.chat.completions.create(
                 model="gpt-4o",
@@ -71,7 +74,7 @@ if uploaded_file is not None:
                     {
                         "role": "user",
                         "content": [
-                            {"type": "text", "text": "Describe the lighting, architecture, environment, and shadows in this image in extreme detail. If there are animals present, describe them and their position. If there are humans present, describe them STRICTLY as ambiguous, faceless silhouettes or figures. Do not attempt to identify facial features, age, or identity. Focus on the spatial relationship between any subjects and the room."},
+                            {"type": "text", "text": "Describe the lighting, architecture, environment, and shadows in this image in extreme detail. If there are animals present, describe them and their position. If there are humans present, identify them generically (e.g., 'a person standing by a tree') and focus on their spatial relationship to the room, but DO NOT describe their specific facial features, age, or identity. NEVER use robotic words like 'faceless,' 'ambiguous,' or 'silhouette.'"},
                             {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{base64_image}"}}
                         ]
                     }
