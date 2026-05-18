@@ -86,7 +86,7 @@ if uploaded_file is not None:
         with st.spinner("Agent 2: Synthesizing psychological tension..."):
             story_response = client.chat.completions.create(
                 model="gpt-4o",
-                temperature=0.85, 
+                temperature=0.65, 
                 messages=[
                     {"role": "system", "content": SYSTEM_INSTRUCTION},
                     {"role": "user", "content": f"Based on this environmental data, execute the narrative protocol:\n\n{environmental_data}"}
